@@ -8,11 +8,11 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif, shlop;
     background-color: black;
 }
 
-// @font-face {
-//     font-family: Open Sans;
-//     src: url(assets/fonts/Open_Sans/open-sans.ttf) format("truetype");
-//   }
+@font-face {
+    font-family: shlop;
+    src: url(assets/fonts/shlop.otf) format("opentype");
+}
