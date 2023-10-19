@@ -1,2 +1,22 @@
-<p>start-game works!</p>
-<button (click)="startGame()">Start</button>
+<div
+  style="
+    margin: 0;
+    padding: 0;
+    background-image: url('../../../assets/images/intro-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  "
+>
+
+  <button (click)="startGame()">Start</button>
+
+  <audio style="display: none" #audioPlayer controls autoplay loop>
+    <source
+      src="../../../assets/audio/start-game-background.mp3"
+      type="audio/mpeg"
+    />
+    Your browser does not support the audio element.
+  </audio>
+</div>
