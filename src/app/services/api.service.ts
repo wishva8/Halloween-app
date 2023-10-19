@@ -12,7 +12,7 @@ export class ApiService {
    * Method: POST
    * Params: data, token, endpoint, options
    */
-  async post(data: any, token: string, endpoint: string) {
+  async post(data: any, token: string = '', endpoint: string) {
     const customOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
@@ -37,7 +37,7 @@ export class ApiService {
    * Method: GET
    * Params: token, endpoint, options
    */
-  async get(token: string, endpoint: string) {
+  async get(token: string = '', endpoint: string) {
     const customOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
@@ -59,7 +59,7 @@ export class ApiService {
    * Method: PUT
    * Params: data,token, endpoint, options
    */
-  async put(data: any, token: string, endpoint: string) {
+  async put(data: any, token: string = '', endpoint: string) {
     const customOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
@@ -84,7 +84,7 @@ export class ApiService {
    * Method: DELETE
    * Params: data,token, endpoint, options
    */
-  async delete(token: string, endpoint: string) {
+  async delete(token: string = '', endpoint: string) {
     const customOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',

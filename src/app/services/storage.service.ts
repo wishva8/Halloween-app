@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
-  getStationID() {
-    return window.localStorage.getItem('stationID')
+  constructor() {}
+
+  getStationID(): any {
+    return window.localStorage.getItem('stationID');
   }
 
-  constructor() { }
-
   setStationID(stationID: any) {
-    window.localStorage.setItem('stationID', stationID)
+    window.localStorage.setItem('stationID', stationID);
+  }
+
+  getLocationGroupID(): any {
+    return window.localStorage.getItem('locationGroupID');
+  }
+
+  setLocationGroupID(stationID: any) {
+    window.localStorage.setItem('locationGroupID', stationID);
   }
 }

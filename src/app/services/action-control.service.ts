@@ -8,9 +8,11 @@ import { Subject } from 'rxjs';
 export class ActionControlService {
   // Observable string sources
   private invokeComponentFunction = new Subject(); 
+  private randomGhost = new Subject(); 
 
   // Observable string streams
   componentFunctionCalled$ = this.invokeComponentFunction.asObservable();
+  randomGhost$ = this.randomGhost.asObservable();
   constructor(private router: Router) { }
 
   actionController(payload: any) {
@@ -18,6 +20,8 @@ export class ActionControlService {
       this.changeRoute(payload.payload.path)
     } else if (payload.action == 'moveGhost') {
       this.invokeComponentFunction.next('');
+    } else if (payload.action == 'randomGhost') {
+      this.randomGhost.next('');
     }
   }
   changeRoute(path: string) {

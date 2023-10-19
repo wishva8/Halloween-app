@@ -8,12 +8,14 @@ import { SequenceSelectQuestionComponent } from './pages/sequence-select-questio
 import { LocationSetupComponent } from './pages/location-setup/location-setup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from 'src/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { StartGameComponent } from './pages/start-game/start-game.component';
 import { MoveGhostComponent } from './pages/move-ghost/move-ghost.component';
 import { WebSocketService } from './services/web-socket.service';
 import { ActionControlService } from './services/action-control.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DefaultClientScreenComponent } from './pages/default-client-screen/default-client-screen.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ActionControlService } from './services/action-control.service';
     SequenceSelectQuestionComponent,
     LocationSetupComponent,
     StartGameComponent,
-    MoveGhostComponent
+    MoveGhostComponent,
+    DefaultClientScreenComponent,
     ],
   imports: [
     ReactiveFormsModule, // Import the ReactiveFormsModule here
@@ -32,8 +35,10 @@ import { ActionControlService } from './services/action-control.service';
     BrowserAnimationsModule,
     MaterialExampleModule,
     MatInputModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [WebSocketService, ActionControlService],
+  providers: [WebSocketService, ActionControlService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

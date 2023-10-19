@@ -22,14 +22,13 @@ export class StartGameComponent implements OnInit {
     const audio = this.audioPlayer.nativeElement;
     const fadeOutInterval = setInterval(() => {
       if (audio.volume > 0.1) {
-        audio.volume -= 0.1; // Decrease the volume by 0.1 (adjust as needed)
+        audio.volume -= 0.1;
       } else {
-        clearInterval(fadeOutInterval); // Clear the interval when volume is low
-        audio.pause(); // Pause the audio
+        clearInterval(fadeOutInterval);
+        audio.pause();
       }
-    }, 500); // Adjust the interval duration (in milliseconds) as needed
+    }, 500);
   }
-
 
   stopAudio() {
     this.audioPlayer.nativeElement.pause();
@@ -37,6 +36,9 @@ export class StartGameComponent implements OnInit {
 
   startGame() {
     this.fadeOutAudio();
-    this.router.navigate(['sequence-select-question']);
+
+    setTimeout(() => {
+      this.router.navigate(['sequence-select-question']);
+    }, 5000);
   }
 }

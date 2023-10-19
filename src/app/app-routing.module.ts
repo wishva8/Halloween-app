@@ -4,6 +4,7 @@ import { LocationSetupComponent } from './pages/location-setup/location-setup.co
 import { SequenceSelectQuestionComponent } from './pages/sequence-select-question/sequence-select-question.component';
 import { StartGameComponent } from './pages/start-game/start-game.component';
 import { MoveGhostComponent } from './pages/move-ghost/move-ghost.component';
+import { DefaultClientScreenComponent } from './pages/default-client-screen/default-client-screen.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'move-ghost',
     component: MoveGhostComponent
+  },
+  {
+    path: 'default-client-screen',
+    component: DefaultClientScreenComponent
   },
 ];
 

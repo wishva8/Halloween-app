@@ -1,13 +1,45 @@
 <div class="row m-auto justify-content-center h-100">
-    <div class="col-4 m-auto">
-        <form class="example-form" [formGroup]="myForm">
-            <mat-form-field class="example-full-width w-100">
-                <mat-label>Enter Location</mat-label>
-                <input matInput placeholder="Ex. 1" formControlName="inputValue">
-            </mat-form-field>
-        </form>
-        <div class="w-100 text-center">
-            <button class="w-75" mat-raised-button (click)="setValue()">Done</button>
-        </div>
+  <div class="col-4 m-auto">
+    <div class="row">
+      <div class="col-lg-12">
+        <div>This Machine Run As</div>
+      </div>
     </div>
+
+    <mat-radio-group [(ngModel)]="selectedOption">
+      <mat-radio-button value="operator">Operator</mat-radio-button>
+      <mat-radio-button value="client">Client</mat-radio-button>
+    </mat-radio-group>
+    <div>Your favorite season is: {{ selectedOption }}</div>
+
+    <div *ngIf="selectedOption == 'client'">
+      <form class="example-form" [formGroup]="clientForm">
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Enter Location</mat-label>
+          <input matInput placeholder="Ex. 1" formControlName="inputValue" />
+        </mat-form-field>
+      </form>
+
+      <div class="w-100 text-center">
+        <button class="w-75" mat-raised-button (click)="setClient()">
+          Set Client
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="selectedOption == 'operator'">
+      <form class="example-form" [formGroup]="operatorForm">
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Enter Location Group</mat-label>
+          <input matInput placeholder="Ex. 1" formControlName="inputValue" />
+        </mat-form-field>
+      </form>
+
+      <div class="w-100 text-center">
+        <button class="w-75" mat-raised-button (click)="setOperator()">
+          Set Operator
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

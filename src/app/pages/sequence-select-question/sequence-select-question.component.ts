@@ -1,28 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-sequence-select-question',
   templateUrl: './sequence-select-question.component.html',
-  styleUrls: ['./sequence-select-question.component.scss']
+  styleUrls: ['./sequence-select-question.component.scss'],
 })
 export class SequenceSelectQuestionComponent implements OnInit {
-
-  section: number = 1
-  selectedSequence: any[] = []
+  section: number = 1;
+  selectedSequence: any[] = [];
   constructor(
-    private router: Router
-  ) { }
-
+    private apiService: ApiService,
+    private router: Router,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
-    this.intro()
+    this.intro();
   }
 
   changeSection(section: number) {
-    this.section = section
+    this.section = section;
+    if (section == 2) {
+      this.playSequence();
+    }
     if (section == 3) {
-      this.playSequence()
+      setInterval(() => {
+        this.ghostHangingAround();
+      }, 15000);
     }
   }
 
@@ -32,24 +39,40 @@ export class SequenceSelectQuestionComponent implements OnInit {
     // finally play sequence
   }
 
+  ghostHangingAround() {
+    this.apiService
+      .get(
+        '',
+        `ghost-hangout-around/start/${parseInt(
+          this.storageService.getLocationGroupID()
+        )}`
+      )
+      .then((response: any) => {
+        console.log(response);
+      })
+      .catch((error: any) => {});
+  }
+
   playSequence() {
-    // play sequence api
-    // server will play sequence 
+    this.apiService
+      .get('', 'move-ghost')
+      .then((response: any) => {
+        console.log(response);
+      })
+      .catch((error: any) => {});
   }
 
   submitSequence() {
-    this.selectedSequence
-    console.log('sequence submitted');
-
+    this.selectedSequence;
     // if correct
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 
   setSequence(location: number) {
-    this.selectedSequence.push(location)
+    this.selectedSequence.push(location);
     if (this.selectedSequence.length == 6) {
-      this.submitSequence()
-      this.selectedSequence = []
+      this.submitSequence();
+      this.selectedSequence = [];
     }
   }
 }
