@@ -2,7 +2,7 @@
   style="
     margin: 0;
     padding: 0;
-    background-image: url('assets/images/intro-background.jpg');
+    background-image: url('assets/images/intro_background.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -10,13 +10,50 @@
   "
 >
   <div class="row m-auto justify-content-center h-100">
-    <div class="col-4 m-auto">
-      <div class="w-100 text-center">
-        <button class="w-75" mat-raised-button (click)="startGame()">
-          Start
-        </button>
+    <div class="row">
+      <div class="col-lg-12 d-flex">
+        <img
+          style="width: 10%"
+          class="m-auto"
+          src="assets/ambrum_logo.png"
+          alt=""
+        />
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-12 d-flex">
+        <img
+          class="m-auto"
+          style="width: 50%"
+          src="assets/welcome/text_welcome.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex">
+        <div *ngIf="isStartClicked">
+          <img
+            style="position: absolute; z-index: 10; width: 180px; left: 40%"
+            src="../../../assets/blood.png"
+            alt=""
+          />
+        </div>
+
+        <img
+          (click)="startGame()"
+          class="m-auto button"
+          style="width: 30%"
+          src="assets/welcome/btn_start.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- <button class="w-75" mat-raised-button (click)="startGame()">
+          Start
+        </button> -->
   </div>
 
   <audio style="display: none" #audioPlayer controls autoplay loop>

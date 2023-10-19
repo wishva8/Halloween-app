@@ -65,7 +65,8 @@ export class SequenceSelectQuestionComponent implements OnInit {
   submitSequence() {
     this.selectedSequence;
     // if correct
-    this.router.navigate(['']);
+    this.section = 5;
+    // this.router.navigate(['']);
   }
 
   setSequence(location: number) {

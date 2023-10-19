@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./start-game.component.scss'],
 })
 export class StartGameComponent implements OnInit {
+  isStartClicked: boolean = false;
   @ViewChild('audioPlayer') audioPlayer: ElementRef;
   constructor(private router: Router) {}
 
@@ -27,7 +28,7 @@ export class StartGameComponent implements OnInit {
         clearInterval(fadeOutInterval);
         audio.pause();
       }
-    }, 500);
+    }, 100);
   }
 
   stopAudio() {
@@ -35,10 +36,10 @@ export class StartGameComponent implements OnInit {
   }
 
   startGame() {
+    this.isStartClicked = true;
     this.fadeOutAudio();
-
     setTimeout(() => {
       this.router.navigate(['sequence-select-question']);
-    }, 5000);
+    }, 3000);
   }
 }

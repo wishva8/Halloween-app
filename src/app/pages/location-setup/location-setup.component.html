@@ -29,9 +29,13 @@
 
     <div *ngIf="selectedOption == 'operator'">
       <form class="example-form" [formGroup]="operatorForm">
-        <mat-form-field class="example-full-width w-100">
-          <mat-label>Enter Location Group</mat-label>
-          <input matInput placeholder="Ex. 1" formControlName="inputValue" />
+        <mat-form-field>
+          <mat-label>Choose one</mat-label>
+          <mat-select formControlName="inputValue">
+            <mat-option value="0">User Machine 1</mat-option>
+            <mat-option value="1">User Machine 2</mat-option>
+            <mat-option value="2">User Machine 3</mat-option>
+          </mat-select>
         </mat-form-field>
       </form>
 
