@@ -1,0 +1,25 @@
+<!-- Section 1 -> intro -->
+<div *ngIf="section == 1">
+    intro
+
+    <button (click)="changeSection(2)">Next</button>
+</div>
+<!-- Section 2 -> ghost talk -->
+<div *ngIf="section == 2">
+    ghost talk
+
+    <button (click)="changeSection(3)">Next</button>
+</div>
+<!-- Section 1 -> intro -->
+<div *ngIf="section == 3">
+    sequence enter screen
+
+    <div (click)="setSequence(1)">location 1</div>
+    <div (click)="setSequence(2)">location 2</div>
+    <div (click)="setSequence(3)">location 3</div>
+
+
+    <div *ngFor="let seq of selectedSequence">
+        {{seq}}
+    </div>
+</div>

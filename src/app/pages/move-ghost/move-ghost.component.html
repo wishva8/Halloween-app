@@ -1,0 +1,9 @@
+<div *ngIf="ghostStatus">
+    <!-- Display an image if ghostStatus is true -->
+    <img src="../../../assets/ghost-1.gif" style="width: 100%;" alt="">
+    <!-- Audio player element with controls, autoplay, and a fallback message -->
+</div>
+<audio #audioPlayer controls autoplay loop>
+    <source src="../../../assets/audio/ghost.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>

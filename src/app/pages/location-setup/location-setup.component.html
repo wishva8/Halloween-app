@@ -1,0 +1,10 @@
+<div class="w-100 m-auto">
+    <form class="example-form" [formGroup]="myForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Enter Location</mat-label>
+            <input matInput placeholder="Ex. 1" formControlName="inputValue">
+        </mat-form-field>
+    </form>
+
+    <button (click)="setValue()">Get Value</button>
+</div>
