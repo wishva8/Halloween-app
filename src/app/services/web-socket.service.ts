@@ -33,6 +33,8 @@ export class WebSocketService {
     this.socket.onclose = (event) => {
       console.log('WebSocket connection closed. Reconnecting...');
       this.wsTimer = setTimeout(() => {
+        console.log('ws timer ...');
+        
         this.connect();
       }, this.reconnectInterval);
     };

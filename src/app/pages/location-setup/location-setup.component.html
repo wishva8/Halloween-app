@@ -1,10 +1,13 @@
-<div class="w-100 m-auto">
-    <form class="example-form" [formGroup]="myForm">
-        <mat-form-field class="example-full-width">
-            <mat-label>Enter Location</mat-label>
-            <input matInput placeholder="Ex. 1" formControlName="inputValue">
-        </mat-form-field>
-    </form>
-
-    <button (click)="setValue()">Get Value</button>
+<div class="row m-auto justify-content-center h-100">
+    <div class="col-4 m-auto">
+        <form class="example-form" [formGroup]="myForm">
+            <mat-form-field class="example-full-width w-100">
+                <mat-label>Enter Location</mat-label>
+                <input matInput placeholder="Ex. 1" formControlName="inputValue">
+            </mat-form-field>
+        </form>
+        <div class="w-100 text-center">
+            <button class="w-75" mat-raised-button (click)="setValue()">Done</button>
+        </div>
+    </div>
 </div>
