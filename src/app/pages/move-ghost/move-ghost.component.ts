@@ -12,15 +12,18 @@ export class MoveGhostComponent {
   @ViewChild('audioPlayer') audioPlayer: ElementRef;
   wallpaper: string;
   showDots: boolean = false;
+  stationId: any;
   constructor(
     private actionControlService: ActionControlService,
     private storageService: StorageService
   ) {
+    this.stationId = this.storageService.getStationID();
     this.actionControlService.componentFunctionCalled$.subscribe(() => {
       this.changeGhostStatus(); // Call your function here
     });
 
-    this.wallpaper = `assets/wallpapers/${this.storageService.getStationID()}.jpg`;
+    this.wallpaper = `assets/wallpapers/${this.stationId}.png`;
+    this.toggleWithRandomDelay();
   }
 
   playAudio() {
@@ -42,7 +45,6 @@ export class MoveGhostComponent {
 
   toggleWithRandomDelay(): void {
     this.showDots = true;
-
     setTimeout(() => {
       this.showDots = false;
       const randomDelay = Math.floor(Math.random() * 5000) + 1000; // Random delay between 1 and 5 seconds
