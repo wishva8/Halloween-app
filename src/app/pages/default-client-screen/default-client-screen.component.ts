@@ -11,6 +11,13 @@ import { StorageService } from 'src/app/services/storage.service';
 export class DefaultClientScreenComponent implements OnInit {
   showDots: boolean = false;
   ghostStatus: boolean = false;
+  wallpaper: string;
+
+  locationGroups: any = [
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ];
 
   @ViewChild('audioPlayer') audioPlayer: ElementRef;
 
@@ -22,6 +29,8 @@ export class DefaultClientScreenComponent implements OnInit {
     this.actionControlService.randomGhost$.subscribe(() => {
       this.changeGhostStatus(); // Call your function here
     });
+    this.wallpaper = `assets/wallpapers/${this.storageService.getStationID()}.jpg`;
+    this.storageService.getStationID();
   }
 
   playAudio() {
@@ -40,15 +49,17 @@ export class DefaultClientScreenComponent implements OnInit {
       this.stopAudio();
     }
   }
+  ngOnInit() {
+    this.toggleWithRandomDelay();
+  }
+  
+  toggleWithRandomDelay(): void {
+    this.showDots = true;
 
-  ngOnInit(): void {
-    // Call randomFunction after the random interval
-    setInterval(() => {
-      this.showDots = !this.showDots;
-      setTimeout(() => {
-        this.showDots = !this.showDots;
-      }, 500);
-      // Call the function recursively to continue calling it randomly
-    }, 10000);
+    setTimeout(() => {
+      this.showDots = false;
+      const randomDelay = Math.floor(Math.random() * 5000) + 1000; // Random delay between 1 and 5 seconds
+      setTimeout(() => this.toggleWithRandomDelay(), randomDelay);
+    }, 100);
   }
 }

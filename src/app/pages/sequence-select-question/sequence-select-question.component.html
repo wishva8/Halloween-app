@@ -1,25 +1,48 @@
 <!-- Section 1 -> intro -->
 <div *ngIf="section == 1">
-    intro
+  intro
 
-    <button (click)="changeSection(2)">Next</button>
+  <button (click)="changeSection(2)">Next</button>
 </div>
 <!-- Section 2 -> ghost talk -->
 <div *ngIf="section == 2">
-    ghost talk
+  ghost talk
 
-    <button (click)="changeSection(3)">Next</button>
+  <button (click)="changeSection(3)">Next</button>
 </div>
-<!-- Section 1 -> intro -->
+<!-- Section 3 -> explain video -->
+
 <div *ngIf="section == 3">
-    sequence enter screen
+  Explain video
 
-    <div (click)="setSequence(1)">location 1</div>
-    <div (click)="setSequence(2)">location 2</div>
-    <div (click)="setSequence(3)">location 3</div>
-
-
-    <div *ngFor="let seq of selectedSequence">
-        {{seq}}
-    </div>
+  <button (click)="changeSection(4)">Next</button>
 </div>
+
+<!-- Section 4 -> Select Sequence -->
+<div *ngIf="section == 4">
+  sequence enter screen
+
+  <div class="row">
+    <div class="col-lg-4">
+      <mat-card (click)="setSequence(1)">
+        <mat-card-content>Location 1</mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-lg-4">
+      <mat-card (click)="setSequence(2)">
+        <mat-card-content>Location 2</mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-lg-4">
+      <mat-card (click)="setSequence(3)">
+        <mat-card-content>Location 3</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngFor="let seq of selectedSequence">
+    {{ seq }}
+  </div>
+</div>
+
+<div *ngIf="section == 5">Decision</div>
