@@ -11,7 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class SequenceSelectQuestionComponent implements OnInit {
   section: number = 1;
   selectedSequence: any[] = [];
-  isAnswerCorrect: boolean = false;
+  isAnswerCorrect: boolean = true;
   constructor(
     private apiService: ApiService,
     private router: Router,
@@ -27,6 +27,10 @@ export class SequenceSelectQuestionComponent implements OnInit {
     if (section == 2) {
     }
     if (section == 3) {
+      
+      setTimeout(() => {
+        this.section = 4;
+      }, 3000);
     }
   }
 

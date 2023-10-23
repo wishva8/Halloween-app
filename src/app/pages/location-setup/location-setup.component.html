@@ -33,6 +33,7 @@
           <div class="row mt-4">
             <div class="col-lg-12">
               <div *ngIf="selectedOption == 'client'">
+                <div class="text-danger">Note: Set client 0 to tv</div>
                 <form class="example-form" [formGroup]="clientForm">
                   <mat-form-field class="example-full-width w-100">
                     <mat-label>Enter Location</mat-label>
@@ -58,9 +59,8 @@
               <mat-form-field class="w-100">
                 <mat-label>Choose one</mat-label>
                 <mat-select formControlName="inputValue">
-                  <mat-option value="0">User Machine 1</mat-option>
-                  <mat-option value="1">User Machine 2</mat-option>
-                  <mat-option value="2">User Machine 3</mat-option>
+                  <mat-option value="0">User Machine 1 (Main Device)</mat-option>
+                  <mat-option value="1">User Machine 2 (TV Controller)</mat-option>
                 </mat-select>
               </mat-form-field>
             </form>

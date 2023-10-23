@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ActionControlService {
   // Observable string sources
-  private invokeComponentFunction = new Subject(); 
-  private randomGhost = new Subject(); 
-
-  // Observable string streams
+  private invokeComponentFunction = new Subject();
   componentFunctionCalled$ = this.invokeComponentFunction.asObservable();
-  randomGhost$ = this.randomGhost.asObservable();
-  constructor(private router: Router) { }
+
+  private messageSource = new Subject();
+  messageSource$ = this.messageSource.asObservable();
+
+  test: any = {};
+
+  constructor(private router: Router) {}
 
   actionController(payload: any) {
     if (payload.action == 'changeRoute') {
-      this.changeRoute(payload.payload.path)
+      this.changeRoute(payload.payload.path, payload.payload);
     } else if (payload.action == 'moveGhost') {
       this.invokeComponentFunction.next('');
     } else if (payload.action == 'randomGhost') {
-      this.randomGhost.next('');
+      this.messageSource.next('');
+    } else if (payload.action == 'selectSymbol') {
+      this.messageSource.next(payload);
     }
   }
-  changeRoute(path: string) {
-    this.router.navigate([path])
+
+  changeRoute(path: string, params: any = {}) {
+    console.log(params);
+    
+    this.router.navigate([path], params);
   }
 }

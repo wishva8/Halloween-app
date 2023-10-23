@@ -21,6 +21,7 @@ import { ChapterOneStartComponent } from './pages/chapter-one-start/chapter-one-
 import { CamPageComponent } from './pages/cam-page/cam-page.component';
 import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-symbols-page.component';
 import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
+import { EndGameComponent } from './pages/end-game/end-game.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbol
     CamPageComponent,
     SelectSymbolsPageComponent,
     SymbolsDisplayPageComponent,
+    EndGameComponent,
     ],
   imports: [
     ReactiveFormsModule, // Import the ReactiveFormsModule here

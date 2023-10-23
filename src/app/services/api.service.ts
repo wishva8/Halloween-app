@@ -16,7 +16,7 @@ export class ApiService {
     const customOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
-        'Content-Type': 'text/plain',
+        contentType: 'application/json'
       }),
     };
     return await new Promise((resolve, rejects) => {

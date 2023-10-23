@@ -39,7 +39,12 @@ export class LocationSetupComponent implements OnInit {
     const formValue = this.clientForm.value;
     this.storageService.setStationID(formValue.inputValue);
     this.webSocket.connect();
-    this.router.navigate(['default-client-screen']);
+    if (this.clientForm.value.inputValue == 0) {
+      this.router.navigate(['symbols-display-page']);
+    } else {
+      this.router.navigate(['default-client-screen']);
+    }
+
     // You can use formValue.inputValue in your component logic or send it to a service, as needed
   }
 
@@ -47,6 +52,11 @@ export class LocationSetupComponent implements OnInit {
     const formValue = this.operatorForm.value;
     this.storageService.setLocationGroupID(formValue.inputValue);
     this.webSocket.connect();
-    this.router.navigate(['start-game']);
+    if (formValue.inputValue == 0) {
+      this.router.navigate(['start-game']);
+    }
+    if (formValue.inputValue == 1) {
+      this.router.navigate(['select-symbols-page']);
+    }
   }
 }

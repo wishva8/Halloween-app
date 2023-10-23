@@ -1,23 +1,60 @@
 <div
   style="
-   margin: 0;
-  padding: 0;
-  background-image: url('assets/select-symbol-page-images/background.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  width: 100vw; /* Set the width to cover the entire viewport width */
-  height: 100vh; /* Set the height to cover the entire viewport height */
-  position: fixed;
-
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-image: url('../../../assets/select-symbol-page-images/background.png');
+    position: absolute;
   "
 >
-<div class="grid-container">
-    <div class="grid-item">1</div>
-    <div class="grid-item small">2</div>
-    <div class="grid-item">3</div>
-    <div class="grid-item">4</div>
-    <div class="grid-item small">5</div>
-    <div class="grid-item">6</div>
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <div
+          style="
+            font-size: 50px;
+            color: #f8dda5;
+            font-weight: 300;
+            font-family: halloweenMorning;
+            line-height: 100px;
+            padding-left: 20px;
+            padding-right: 20px;
+            -webkit-text-stroke: 2px #5F0606
+          "
+          class="text-center"
+        >
+          Select Code
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div class="m-auto">
+      <div class="row">
+        <!-- First Row -->
+        <div class="d-flex justify-content-center">
+          <img
+            class="button-image m-2"
+            *ngFor="let imagePath of symbols.slice(0, 3)"
+            (click)="toggleSymbol(imagePath)"
+            [src]="imagePath.path"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="row">
+        <!-- Second Row -->
+        <div class="d-flex justify-content-center">
+          <img
+            class="button-image m-2"
+            *ngFor="let imagePath of symbols.slice(3)"
+            (click)="toggleSymbol(imagePath)"
+            [src]="imagePath.path"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>

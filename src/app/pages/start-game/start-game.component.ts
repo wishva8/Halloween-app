@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActionControlService } from 'src/app/services/action-control.service';
 
 @Component({
   selector: 'app-start-game',
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
 export class StartGameComponent implements OnInit {
   isStartClicked: boolean = false;
   @ViewChild('audioPlayer') audioPlayer: ElementRef;
-  constructor(private router: Router) {}
+  constructor(private router: Router, public appService: ActionControlService) {
+
+    this.appService.messageSource$.subscribe((value: any) => {
+    });
+  }
 
   ngOnInit(): void {
     this.playAudio();

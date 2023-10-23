@@ -10,6 +10,7 @@ import { ChapterOneStartComponent } from './pages/chapter-one-start/chapter-one-
 import { CamPageComponent } from './pages/cam-page/cam-page.component';
 import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-symbols-page.component';
 import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
+import { EndGameComponent } from './pages/end-game/end-game.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'cam-page',
     component: CamPageComponent,
+  },
+  {
+    path: 'end-game',
+    component: EndGameComponent,
   },
 ];
 

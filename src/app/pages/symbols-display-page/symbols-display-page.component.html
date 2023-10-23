@@ -1,1 +1,39 @@
-<p>symbols-display-page works!</p>
+<div
+  class="d-flex"
+  style="
+    height: 100%;
+    width: 100vw;
+    background-image: url('../../../assets/select-symbol-page-images/background.png');
+    position: absolute;
+  "
+>
+  <div class="d-flex m-auto">
+    <div class="m-auto">
+      <div class="row">
+        <!-- First Row -->
+        <div class="d-flex justify-content-center">
+          <img
+            *ngFor="let imagePath of symbols.slice(0, 3)"
+            [src]="imagePath.path"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="row">
+        <!-- Second Row -->
+        <div class="d-flex justify-content-center">
+          <img
+            *ngFor="let imagePath of symbols.slice(3)"
+            [src]="imagePath.path"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<audio style="display: none" #audioPlayer controls>
+  <source src="assets/audio/select-symbol.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>

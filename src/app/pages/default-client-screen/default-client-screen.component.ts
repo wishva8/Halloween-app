@@ -28,7 +28,7 @@ export class DefaultClientScreenComponent implements OnInit {
     private router: Router,
     private storageService: StorageService
   ) {
-    this.actionControlService.randomGhost$.subscribe(() => {
+    this.actionControlService.messageSource$.subscribe(() => {
       this.changeGhostStatus(); // Call your function here
     });
     this.wallpaper = `assets/wallpapers/${this.storageService.getStationID()}.jpg`;

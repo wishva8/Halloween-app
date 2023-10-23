@@ -25,16 +25,13 @@ export class WebSocketService {
     };
 
     this.socket.onmessage = (event) => {
-      console.log('Received message: ', event.data);
       this.actionControlService.actionController(JSON.parse(event.data))
-      // Handle incoming messages here
     };
 
     this.socket.onclose = (event) => {
       console.log('WebSocket connection closed. Reconnecting...');
       this.wsTimer = setTimeout(() => {
         console.log('ws timer ...');
-        
         this.connect();
       }, this.reconnectInterval);
     };
