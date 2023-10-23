@@ -16,6 +16,11 @@ import { WebSocketService } from './services/web-socket.service';
 import { ActionControlService } from './services/action-control.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DefaultClientScreenComponent } from './pages/default-client-screen/default-client-screen.component';
+import { IntroComponent } from './pages/intro/intro.component';
+import { ChapterOneStartComponent } from './pages/chapter-one-start/chapter-one-start.component';
+import { CamPageComponent } from './pages/cam-page/cam-page.component';
+import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-symbols-page.component';
+import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { DefaultClientScreenComponent } from './pages/default-client-screen/defa
     StartGameComponent,
     MoveGhostComponent,
     DefaultClientScreenComponent,
+    IntroComponent,
+    ChapterOneStartComponent,
+    CamPageComponent,
+    SelectSymbolsPageComponent,
+    SymbolsDisplayPageComponent,
     ],
   imports: [
     ReactiveFormsModule, // Import the ReactiveFormsModule here

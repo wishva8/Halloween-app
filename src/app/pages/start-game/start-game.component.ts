@@ -39,7 +39,7 @@ export class StartGameComponent implements OnInit {
     this.isStartClicked = true;
     this.fadeOutAudio();
     setTimeout(() => {
-      this.router.navigate(['sequence-select-question']);
-    }, 3000);
+      this.router.navigate(['intro']);
+    }, 1000);
   }
 }

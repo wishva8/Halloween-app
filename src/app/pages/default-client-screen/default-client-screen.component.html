@@ -1,24 +1,39 @@
 <div
+  *ngIf="showDots"
+  style="
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+    background-image: url('../../../assets/dot.png');
+    z-index: 10;
+    position: absolute;
+  "
+></div>
+<div
   [ngStyle]="showDots ? { filter: 'invert(100%)' } : {}"
   style="
-  margin: 0;
-  padding: 0;
-  background-image: url('{{ wallpaper }}');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
-"
+    margin: 0;
+    padding: 0;
+    opacity: 0.5;
+    background-image: url('../../../assets/cctv/cctv-1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  "
 >
-
-<div *ngIf="ghostStatus" style="position: absolute;bottom: 0%; left: 50%;">
+  <div *ngIf="ghostStatus" style="position: absolute; bottom: 0%; left: 0%">
     <!-- Display an image if ghostStatus is true -->
-    <img  src="../../../assets/images/ghost.png" style="width: 100%;" alt="" />
+    <img
+      src="../../../assets/ghost.gif"
+      style="width: 100vw; height: 100vh; opacity: 75%"
+      alt=""
+    />
     <!-- Audio player element with controls, autoplay, and a fallback message -->
   </div>
 </div>
 
-<audio style="display: none" #audioPlayer controls autoplay>
-  <source src="../../../assets/audio/i-see-you-ghost.mp3" type="audio/mpeg" />
+<!-- <audio style="display: none" #audioPlayer controls autoplay>
+  <source src="../../../assets/audio/ghost-pass.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
-</audio>
+</audio> -->

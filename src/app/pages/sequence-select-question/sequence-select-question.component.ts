@@ -11,6 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class SequenceSelectQuestionComponent implements OnInit {
   section: number = 1;
   selectedSequence: any[] = [];
+  isAnswerCorrect: boolean = false;
   constructor(
     private apiService: ApiService,
     private router: Router,
@@ -24,12 +25,8 @@ export class SequenceSelectQuestionComponent implements OnInit {
   changeSection(section: number) {
     this.section = section;
     if (section == 2) {
-      this.playSequence();
     }
     if (section == 3) {
-      setInterval(() => {
-        this.ghostHangingAround();
-      }, 15000);
     }
   }
 
@@ -62,18 +59,11 @@ export class SequenceSelectQuestionComponent implements OnInit {
       .catch((error: any) => {});
   }
 
-  submitSequence() {
-    this.selectedSequence;
-    // if correct
-    this.section = 5;
-    // this.router.navigate(['']);
+  clearSelection() {
+    this.selectedSequence = [];
   }
 
   setSequence(location: number) {
     this.selectedSequence.push(location);
-    if (this.selectedSequence.length == 6) {
-      this.submitSequence();
-      this.selectedSequence = [];
-    }
   }
 }

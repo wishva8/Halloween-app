@@ -1,0 +1,44 @@
+<div
+*ngIf="!isGameStarted"
+  style="
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/images/intro_background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  "
+>
+  <div class="row m-auto justify-content-center h-100">
+
+    <div class="row">
+      <div class="col-lg-12 d-flex">
+        <div *ngIf="isStartClicked">
+          <img
+            style="position: absolute; z-index: 10; width: 180px; left: 40%"
+            src="../../../assets/blood.png"
+            alt=""
+          />
+        </div>
+
+        <img
+          (click)="startChapterOne()"
+          class="m-auto button"
+          style="width: 30%"
+          src="assets/welcome/btn_start.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- <button class="w-75" mat-raised-button (click)="startGame()">
+          Start
+        </button> -->
+  </div>
+
+  <audio style="display: none" #audioPlayer controls autoplay loop>
+    <source src="assets/audio/start-game-background.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+</div>

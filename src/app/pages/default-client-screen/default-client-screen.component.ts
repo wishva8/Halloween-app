@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActionControlService } from 'src/app/services/action-control.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -24,13 +25,13 @@ export class DefaultClientScreenComponent implements OnInit {
   constructor(
     private actionControlService: ActionControlService,
     private apiService: ApiService,
+    private router: Router,
     private storageService: StorageService
   ) {
     this.actionControlService.randomGhost$.subscribe(() => {
       this.changeGhostStatus(); // Call your function here
     });
     this.wallpaper = `assets/wallpapers/${this.storageService.getStationID()}.jpg`;
-    this.storageService.getStationID();
   }
 
   playAudio() {
@@ -43,16 +44,17 @@ export class DefaultClientScreenComponent implements OnInit {
 
   changeGhostStatus() {
     this.ghostStatus = !this.ghostStatus;
-    if (this.ghostStatus) {
-      this.playAudio();
-    } else {
-      this.stopAudio();
-    }
+    // if (this.ghostStatus) {
+    //   this.playAudio();
+    // } else {
+    //   this.stopAudio();
+    // }
   }
   ngOnInit() {
     this.toggleWithRandomDelay();
+
   }
-  
+
   toggleWithRandomDelay(): void {
     this.showDots = true;
 

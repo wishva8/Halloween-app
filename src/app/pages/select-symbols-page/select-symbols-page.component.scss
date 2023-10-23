@@ -1,0 +1,17 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-rows: repeat(2, 1fr); /* Two equal rows */
+    gap: 10px; /* Adjust the gap as needed */
+    width: 100%; /* Adjust the width of the grid container as needed */
+    height: 100vh; /* Adjust the height of the grid container as needed */
+  }
+  
+  .grid-item {
+    background-color: #ccc; /* Background color or styles for the grid items */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    /* Additional styling for the grid items */
+  }

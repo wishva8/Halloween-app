@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
   templateUrl: './location-setup.component.html',
   styleUrls: ['./location-setup.component.scss'],
 })
-export class LocationSetupComponent {
+export class LocationSetupComponent implements OnInit {
   station: any = '';
   clientForm: FormGroup;
   operatorForm: FormGroup;
@@ -31,6 +31,10 @@ export class LocationSetupComponent {
     });
   }
 
+  ngOnInit(): void {
+    window.localStorage.clear();
+  }
+
   setClient() {
     const formValue = this.clientForm.value;
     this.storageService.setStationID(formValue.inputValue);
@@ -39,7 +43,7 @@ export class LocationSetupComponent {
     // You can use formValue.inputValue in your component logic or send it to a service, as needed
   }
 
-  setOperator(){
+  setOperator() {
     const formValue = this.operatorForm.value;
     this.storageService.setLocationGroupID(formValue.inputValue);
     this.webSocket.connect();

@@ -1,48 +1,211 @@
-<!-- Section 1 -> intro -->
-<div *ngIf="section == 1">
-  intro
-
-  <button (click)="changeSection(2)">Next</button>
-</div>
-<!-- Section 2 -> ghost talk -->
-<div *ngIf="section == 2">
-  ghost talk
-
-  <button (click)="changeSection(3)">Next</button>
-</div>
-<!-- Section 3 -> explain video -->
-
-<div *ngIf="section == 3">
-  Explain video
-
-  <button (click)="changeSection(4)">Next</button>
-</div>
-
-<!-- Section 4 -> Select Sequence -->
-<div *ngIf="section == 4">
-  sequence enter screen
-
-  <div class="row">
-    <div class="col-lg-4">
-      <mat-card (click)="setSequence(1)">
-        <mat-card-content>Location 1</mat-card-content>
-      </mat-card>
+<div
+  class="p-4"
+  style="
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/images/intro_background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  "
+>
+  <!-- Section 1 -> intro -->
+  <div *ngIf="section == 1">
+    <div
+      style="
+        font-size: 50px;
+        color: aliceblue;
+        font-weight: 300;
+        font-family: halloweenMorning;
+        line-height: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+      "
+      class="text-center"
+    >
+      Explain What Happened
     </div>
-    <div class="col-lg-4">
-      <mat-card (click)="setSequence(2)">
-        <mat-card-content>Location 2</mat-card-content>
-      </mat-card>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex">
+        <button mat-raised-button color="primary" (click)="changeSection(2)">
+          <div class="button-text">Next</div>
+        </button>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <mat-card (click)="setSequence(3)">
-        <mat-card-content>Location 3</mat-card-content>
-      </mat-card>
+  </div>
+  <!-- Section 2 -> ghost talk -->
+  <div *ngIf="section == 2">
+    <div
+      style="
+        font-size: 50px;
+        color: aliceblue;
+        font-weight: 300;
+        font-family: halloweenMorning;
+        line-height: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+      "
+      class="text-center"
+    >
+      Select Sequence
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <mat-card class="example-card" (click)="setSequence(1)">
+          <img
+            mat-card-image
+            src="../../../assets/sequence-images/1.png"
+            alt="Photo of a Shiba Inu"
+          />
+        </mat-card>
+
+        <div
+          style="
+            font-size: 20px;
+            color: aliceblue;
+            font-weight: 300;
+            font-family: halloweenMorning;
+          "
+          class="text-center mt-2"
+        >
+          Hospital
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <mat-card class="example-card" (click)="setSequence(2)">
+          <img
+            mat-card-image
+            src="../../../assets/sequence-images/2.png"
+            alt="Photo of a Shiba Inu"
+          />
+        </mat-card>
+
+        <div
+          style="
+            font-size: 20px;
+            color: aliceblue;
+            font-weight: 300;
+            font-family: halloweenMorning;
+          "
+          class="text-center mt-2"
+        >
+          Hospital
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <mat-card class="example-card" (click)="setSequence(3)">
+          <img
+            mat-card-image
+            src="../../../assets/sequence-images/3.png"
+            alt="Photo of a Shiba Inu"
+          />
+        </mat-card>
+
+        <div
+          style="
+            font-size: 20px;
+            color: aliceblue;
+            font-weight: 300;
+            font-family: halloweenMorning;
+          "
+          class="text-center mt-2"
+        >
+          Hospital
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-lg-12 d-flex justify-content-around">
+        <div class="sequence-ball">
+          <div *ngIf="selectedSequence[0]" class="image-container">
+            <img
+              src="../../../assets/sequence-images/{{
+                selectedSequence[0]
+              }}.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <mat-icon class="my-auto arrow">arrow_right_alt</mat-icon>
+        <div class="sequence-ball">
+          <div *ngIf="selectedSequence[1]" class="image-container">
+            <img
+              src="../../../assets/sequence-images/{{
+                selectedSequence[1]
+              }}.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <mat-icon class="my-auto arrow">arrow_right_alt</mat-icon>
+
+        <div class="sequence-ball">
+          <div *ngIf="selectedSequence[2]" class="image-container">
+            <img
+              src="../../../assets/sequence-images/{{
+                selectedSequence[2]
+              }}.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <mat-icon class="my-auto arrow">arrow_right_alt</mat-icon>
+
+        <div class="sequence-ball">
+          <div *ngIf="selectedSequence[3]" class="image-container">
+            <img
+              src="../../../assets/sequence-images/{{
+                selectedSequence[3]
+              }}.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <mat-icon class="my-auto arrow">arrow_right_alt</mat-icon>
+
+        <div class="sequence-ball">
+          <div *ngIf="selectedSequence[4]" class="image-container">
+            <img
+              src="../../../assets/sequence-images/{{
+                selectedSequence[4]
+              }}.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <button
+          class="mx-2"
+          mat-raised-button
+          color="primary"
+          (click)="clearSelection()"
+        >
+          <div class="button-text">Clear</div>
+        </button>
+        <button
+          class="mx-2"
+          mat-raised-button
+          color="primary"
+          (click)="changeSection(3)"
+        >
+          <div class="button-text">Submit</div>
+        </button>
+      </div>
     </div>
   </div>
 
-  <div *ngFor="let seq of selectedSequence">
-    {{ seq }}
+  <div *ngIf="section == 3">
+    <div *ngIf="isAnswerCorrect">
+      
+    </div>
+    <div *ngIf="!isAnswerCorrect"></div>
   </div>
 </div>
-
-<div *ngIf="section == 5">Decision</div>

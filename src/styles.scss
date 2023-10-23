@@ -8,11 +8,25 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif, shlop;
+    font-family: Roboto, "Helvetica Neue", sans-serif, halloweenMorning;
     background-color: black;
 }
 
 @font-face {
-    font-family: shlop;
-    src: url(assets/fonts/shlop.otf) format("opentype");
+    font-family: halloweenMorning;
+    src: url(assets/fonts/halloweenMorning.ttf) format("opentype");
+}
+
+.button-text{
+    font-size: 30px;
+    color: aliceblue;
+    font-weight: 300;
+    font-family: halloweenMorning;
+    line-height: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.text {
+    
 }
