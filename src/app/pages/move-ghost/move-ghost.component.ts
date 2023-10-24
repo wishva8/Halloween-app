@@ -22,7 +22,9 @@ export class MoveGhostComponent {
       this.changeGhostStatus(); // Call your function here
     });
 
-    this.wallpaper = `assets/wallpapers/${this.stationId}.png`;
+    this.wallpaper = `assets/sequence-video/${this.stationId}.mp4`;
+    console.log(this.wallpaper);
+    
     this.toggleWithRandomDelay();
   }
 

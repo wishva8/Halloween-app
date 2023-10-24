@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class ActionControlService {
 
   actionController(payload: any) {
     if (payload.action == 'changeRoute') {
-      this.changeRoute(payload.payload.path, payload.payload);
+      this.changeRoute(payload.payload.path, JSON.stringify(payload.payload));
     } else if (payload.action == 'moveGhost') {
       this.invokeComponentFunction.next('');
     } else if (payload.action == 'randomGhost') {
@@ -30,8 +30,9 @@ export class ActionControlService {
   }
 
   changeRoute(path: string, params: any = {}) {
-    console.log(params);
-    
-    this.router.navigate([path], params);
+    const navigationExtras: NavigationExtras = {
+      queryParams: { data: params },
+    };
+    this.router.navigate([path], navigationExtras);
   }
 }

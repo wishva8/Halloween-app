@@ -11,6 +11,7 @@ import { CamPageComponent } from './pages/cam-page/cam-page.component';
 import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-symbols-page.component';
 import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
 import { EndGameComponent } from './pages/end-game/end-game.component';
+import { TeamViewComponent } from './pages/team-view/team-view.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'end-game',
     component: EndGameComponent,
+  },
+  {
+    path: 'team-view',
+    component: TeamViewComponent,
   },
 ];
 

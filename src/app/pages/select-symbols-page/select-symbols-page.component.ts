@@ -78,6 +78,8 @@ export class SelectSymbolsPageComponent {
 
       setTimeout(() => {
         this.isSelectable = true;
+        console.log(this.selectedSymbols);
+        
 
         if (this.selectedSymbols.length > 2) {
           const data = {
