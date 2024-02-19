@@ -1,32 +1,8 @@
-<div
-  style="
-    margin: 0;
-    padding: 0;
-    background-image: url('assets/images/intro_background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
-  "
->
-  <div class="story-container">
-    <div
-      style="
-        font-size: 50px;
-        color: aliceblue;
-        font-weight: 300;
-        font-family: halloweenMorning;
-        line-height: 100px;
-        padding-left: 20px;
-        padding-right: 20px;
-      "
-      class="text-center"
-      [@scrollAnimation]="scrollState"
-    >
-      {{ storyText }}
-    </div>
-  </div>
-</div>
+<video autoplay muted id="background-video" (ended)="autoScroll()">
+  <source src="../../../assets/intro.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
 
 <audio style="display: none" #audioPlayer controls autoplay loop>
   <source src="assets/audio/intro.mp3" type="audio/mpeg" />

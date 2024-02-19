@@ -12,6 +12,9 @@ import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-s
 import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
 import { EndGameComponent } from './pages/end-game/end-game.component';
 import { TeamViewComponent } from './pages/team-view/team-view.component';
+import { FindPortalComponent } from './pages/find-portal/find-portal.component';
+import { ScanTokenComponent } from './pages/scan-token/scan-token.component';
+import { FindDeviceComponent } from './pages/find-device/find-device.component';
 
 const routes: Routes = [
   {
@@ -65,6 +68,18 @@ const routes: Routes = [
   {
     path: 'team-view',
     component: TeamViewComponent,
+  },
+  {
+    path: 'find-portal',
+    component: FindPortalComponent,
+  },
+  {
+    path: 'scan-token',
+    component: ScanTokenComponent,
+  },
+  {
+    path: 'find-device',
+    component: FindDeviceComponent,
   },
 ];
 

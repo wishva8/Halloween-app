@@ -6,7 +6,25 @@
     background-attachment: fixed;
     height: 100%;
   "
-></div>
+>
+  <div class="story-container">
+    <div
+      style="
+        font-size: 50px;
+        color: aliceblue;
+        font-weight: 300;
+        font-family: halloweenMorning;
+        line-height: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+      "
+      class="text-center"
+      [@scrollAnimation]="scrollState"
+    >
+      {{ storyText }}
+    </div>
+  </div>
+</div>
 <audio style="display: none" #audioPlayer controls autoplay loop>
   <source src="assets/audio/team-song.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.

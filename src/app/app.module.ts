@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MultipleChoiceQuestionComponent } from './pages/multiple-choice-question/multiple-choice-question.component';
 import { SequenceSelectQuestionComponent } from './pages/sequence-select-question/sequence-select-question.component';
 import { LocationSetupComponent } from './pages/location-setup/location-setup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,11 +22,13 @@ import { SelectSymbolsPageComponent } from './pages/select-symbols-page/select-s
 import { SymbolsDisplayPageComponent } from './pages/symbols-display-page/symbols-display-page.component';
 import { EndGameComponent } from './pages/end-game/end-game.component';
 import { TeamViewComponent } from './pages/team-view/team-view.component';
+import { FindPortalComponent } from './pages/find-portal/find-portal.component';
+import { ScanTokenComponent } from './pages/scan-token/scan-token.component';
+import { FindDeviceComponent } from './pages/find-device/find-device.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MultipleChoiceQuestionComponent,
     SequenceSelectQuestionComponent,
     LocationSetupComponent,
     StartGameComponent,
@@ -40,6 +41,9 @@ import { TeamViewComponent } from './pages/team-view/team-view.component';
     SymbolsDisplayPageComponent,
     EndGameComponent,
     TeamViewComponent,
+    FindPortalComponent,
+    ScanTokenComponent,
+    FindDeviceComponent,
     ],
   imports: [
     ReactiveFormsModule, // Import the ReactiveFormsModule here

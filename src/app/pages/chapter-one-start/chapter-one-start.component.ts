@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild , ElementRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -8,12 +8,25 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./chapter-one-start.component.scss'],
 })
 export class ChapterOneStartComponent implements OnInit {
+  @ViewChild('audioPlayer') audioPlayer: ElementRef;
   isGameStarted: boolean = false;
   isStartClicked: boolean = false;
   isSequenceEnd: boolean = false;
 
   constructor(private router: Router, private apiService: ApiService) {}
   ngOnInit(): void {}
+
+  fadeOutAudio() {
+    // const audio = this.audioPlayer.nativeElement;
+    // this.fadeOutInterval = setInterval(() => {
+    //   if (audio.volume > 0.1) {
+    //     audio.volume -= 0.1;
+    //   } else {
+    //     clearInterval(this.fadeOutInterval);
+    //     audio.pause();
+    //   }
+    // }, 100);
+  }
 
   startChapterOne() {
     this.isGameStarted = true;

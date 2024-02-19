@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  OnDestroy,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionControlService } from 'src/app/services/action-control.service';
 import { ApiService } from 'src/app/services/api.service';
@@ -9,10 +15,12 @@ import { StorageService } from 'src/app/services/storage.service';
   templateUrl: './default-client-screen.component.html',
   styleUrls: ['./default-client-screen.component.scss'],
 })
-export class DefaultClientScreenComponent implements OnInit {
+export class DefaultClientScreenComponent implements OnInit, OnDestroy {
   showDots: boolean = false;
   ghostStatus: boolean = false;
   wallpaper: string;
+
+  timeOut: any;
 
   locationGroups: any = [
     [1, 2],
@@ -42,6 +50,10 @@ export class DefaultClientScreenComponent implements OnInit {
     this.audioPlayer.nativeElement.stop();
   }
 
+  ngOnDestroy(): void {
+    clearTimeout(this.timeOut);
+  }
+
   changeGhostStatus() {
     this.ghostStatus = !this.ghostStatus;
     // if (this.ghostStatus) {
@@ -52,16 +64,18 @@ export class DefaultClientScreenComponent implements OnInit {
   }
   ngOnInit() {
     this.toggleWithRandomDelay();
-
   }
 
   toggleWithRandomDelay(): void {
     this.showDots = true;
 
-    setTimeout(() => {
+    this.timeOut = setTimeout(() => {
       this.showDots = false;
       const randomDelay = Math.floor(Math.random() * 5000) + 1000; // Random delay between 1 and 5 seconds
-      setTimeout(() => this.toggleWithRandomDelay(), randomDelay);
+      this.timeOut = setTimeout(
+        () => this.toggleWithRandomDelay(),
+        randomDelay
+      );
     }, 100);
   }
 }

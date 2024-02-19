@@ -1,0 +1,16 @@
+.story-container {
+    width: 100vw; /* Set your preferred width */
+    height: 100vh; /* Set your preferred height */
+    overflow: hidden;
+  }
+  
+  .story-text {
+      white-space: nowrap;
+      transition: transform 15s linear;
+      transform: translateY(100%); /* Start from the bottom */
+      opacity: 1; /* Initially visible */
+    }
+    .story-text.end {
+      transform: translateY(-100%); /* Exit at the top */
+      opacity: 0; /* Disappear at the top */
+    }

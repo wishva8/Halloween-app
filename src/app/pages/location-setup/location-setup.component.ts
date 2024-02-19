@@ -51,11 +51,15 @@ export class LocationSetupComponent implements OnInit {
   setOperator() {
     const formValue = this.operatorForm.value;
     this.storageService.setLocationGroupID(formValue.inputValue);
-    this.webSocket.connect();
+
     if (formValue.inputValue == 0) {
+      this.storageService.setStationID(-1);
+      this.webSocket.connect();
       this.router.navigate(['start-game']);
     }
     if (formValue.inputValue == 1) {
+      this.storageService.setStationID(-2);
+      this.webSocket.connect();
       this.router.navigate(['select-symbols-page']);
     }
   }
